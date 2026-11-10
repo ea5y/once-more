@@ -1,0 +1,13 @@
+--- a/src/whisper.cpp
++++ b/src/whisper.cpp
+@@ -6052,7 +6052,9 @@
+         const auto txt = whisper_token_to_str(&ctx, token.id);
+         const int cur = strlen(txt);
+ 
+-        if (acc + cur > max_len && i > 0 && should_split_on_word(txt, split_on_word)) {
++        // Never split a UTF-8 character across output segments.
++        const bool utf8_boundary = (static_cast<unsigned char>(txt[0]) & 0xC0) != 0x80;
++        if (acc + cur > max_len && i > 0 && !text.empty() && utf8_boundary && should_split_on_word(txt, split_on_word)) {
+             state.result_all.back().text = std::move(text);
+             state.result_all.back().t1 = token.t0;
+             state.result_all.back().tokens.resize(i);

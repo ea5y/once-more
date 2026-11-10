@@ -1,0 +1,461 @@
+{
+  "date": "2026-10-13",
+  "boards": 42,
+  "stateDesigns": 41,
+  "layoutInstances": 22,
+  "syncPassed": 22,
+  "restorePassed": 22,
+  "geometryTextVisibilityComponentUnchanged": true,
+  "boardsAudit": [
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa95bd79d175",
+      "name": "V1 确认稿 · 01 全部与详情",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "3bf53dbf-0baf-80a9-8008-b138883f9d90",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例"
+        }
+      ]
+    },
+    {
+      "id": "4297a0e4-3fc5-8069-8008-ad3c388aec3f",
+      "name": "V1 确认稿 · 36 扫描处理中 · 保留已有记忆",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "ca8f0f32-abe1-80d4-8008-b360ff007ea9",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 扫描处理中"
+        }
+      ]
+    },
+    {
+      "id": "f65ec8d5-38c7-809b-8008-ac05dd5d2be1",
+      "name": "V1 局部结果层 · 35 范围已保存 · 标题正文同步",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "ca8f0f32-abe1-80d4-8008-b36325092b46",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 范围更新"
+        }
+      ]
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb2720dcd83",
+      "name": "V1 确认稿 · 24 收藏列表 · 正在回听",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "3bf53dbf-0baf-80a9-8008-b1388c034442",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例"
+        }
+      ]
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb288f02253",
+      "name": "V1 确认稿 · 25 取消收藏 · 保留详情与播放",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "3bf53dbf-0baf-80a9-8008-b138978689df",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例"
+        }
+      ]
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb215ff62a8",
+      "name": "V1 确认稿 · 21 长标题与长正文 · 正在跟随",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "2e86d60e-e188-8090-8008-b23e27b95a1e",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 长正文"
+        }
+      ]
+    },
+    {
+      "id": "f65ec8d5-38c7-809b-8008-ac05d59cce1f",
+      "name": "V1 局部叠加层 · 34 列表长标题 · 悬停完整内容",
+      "w": 445,
+      "h": 109,
+      "components": []
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb26d40b64b",
+      "name": "V1 局部叠加层 · 23 长标题展开 · 完整第一句话",
+      "w": 353,
+      "h": 192,
+      "components": []
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb2624fbb93",
+      "name": "V1 确认稿 · 22 手动浏览正文 · 暂停跟随",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "2e86d60e-e188-8090-8008-b23e576749b0",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 长正文"
+        }
+      ]
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96d908250d",
+      "name": "V1 局部叠加层 · 17 提取失败 · 保留范围",
+      "w": 640,
+      "h": 520,
+      "components": []
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96d71d39f1",
+      "name": "V1 局部叠加层 · 16 提取进行中",
+      "w": 640,
+      "h": 520,
+      "components": []
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb3020a7c10",
+      "name": "V1 局部叠加层 · 29 提取新范围 · 模拟进度",
+      "w": 640,
+      "h": 520,
+      "components": []
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96d54a90e2",
+      "name": "V1 确认稿 · 15 未识别到对话",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "3bf53dbf-0baf-80a9-8008-b13a4ba98fa7",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 空状态"
+        }
+      ]
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96d385adc5",
+      "name": "V1 确认稿 · 14 没有录音",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "3bf53dbf-0baf-80a9-8008-b13a416b8e37",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 空状态"
+        }
+      ]
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96d1cdac69",
+      "name": "V1 确认稿 · 13 首次使用",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "3bf53dbf-0baf-80a9-8008-b13a3902f16d",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 空状态"
+        }
+      ]
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96d05f912e",
+      "name": "V1 确认稿 · 12 搜索无结果",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "3bf53dbf-0baf-80a9-8008-b13a2e802b26",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 空状态"
+        }
+      ]
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa9666f6e81e",
+      "name": "V1 确认稿 · 11 收藏为空",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "3bf53dbf-0baf-80a9-8008-b13a26c76a86",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 空状态"
+        }
+      ]
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa966428f49e",
+      "name": "V1 局部结果层 · 10 原录音已删除 · 片段继续可用",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "2e86d60e-e188-8090-8008-b24027c12c13",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 来源已删除"
+        }
+      ]
+    },
+    {
+      "id": "ce649fc2-79fd-8005-8008-abb52a77a238",
+      "name": "V1 局部叠加层 · 32 删除完成 · 流程结束",
+      "w": 640,
+      "h": 520,
+      "components": []
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa965cac8b8e",
+      "name": "V1 局部叠加层 · 09 删除原录音 · 确认",
+      "w": 640,
+      "h": 520,
+      "components": [
+        {
+          "id": "ae41882f-baf5-8080-8008-c62aa4803439",
+          "component": "ae41882f-baf5-8080-8008-c62a9a82b56c",
+          "name": "共用弹框外框 · 640×520"
+        }
+      ]
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa964fcf1a34",
+      "name": "V1 局部叠加层 · 08 来源录音 · 全部片段提取完成",
+      "w": 640,
+      "h": 520,
+      "components": [
+        {
+          "id": "ae41882f-baf5-8080-8008-c62a9a7520de",
+          "component": "ae41882f-baf5-8080-8008-c62a9a82b56c",
+          "name": "共用弹框外框 · 640×520 · 主组件"
+        }
+      ]
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa9732b368f9",
+      "name": "V1 局部叠加层 · 19 来源录音 · 尚不可删除",
+      "w": 640,
+      "h": 520,
+      "components": [
+        {
+          "id": "ddb55c47-c01f-80be-8008-c6bc155cf834",
+          "component": "ae41882f-baf5-8080-8008-c62a9a82b56c",
+          "name": "共用弹框外框 · 640×520"
+        }
+      ]
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa9641aa2cc0",
+      "name": "V1 局部叠加层 · 07 处理任务 · 进行中与失败重试",
+      "w": 640,
+      "h": 520,
+      "components": []
+    },
+    {
+      "id": "ce649fc2-79fd-8005-8008-abb55242b7a2",
+      "name": "V1 局部叠加层 · 33 任务各阶段 · 本地副本规则",
+      "w": 640,
+      "h": 520,
+      "components": []
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa960ed40213",
+      "name": "V1 确认稿 · 06 边界已调整 · 需要重新提取",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "ca8f0f32-abe1-80d4-8008-b3632fbd34e1",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 范围更新"
+        }
+      ]
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa960e5e1032",
+      "name": "V1 局部结果层 · 05 已提取 · 可继续调整",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "ca8f0f32-abe1-80d4-8008-b367b1db5c72",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 已提取"
+        }
+      ]
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb30593727b",
+      "name": "V1 局部结果层 · 30 提取成功 · 使用新文件",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "ca8f0f32-abe1-80d4-8008-b367bbaac694",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 新文件"
+        }
+      ]
+    },
+    {
+      "id": "ce649fc2-79fd-8005-8008-abb4f8aa1ee1",
+      "name": "V1 局部叠加层 · 31 Finder 定位文件 · 模拟",
+      "w": 748,
+      "h": 445,
+      "components": []
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96062e9dc4",
+      "name": "V1 局部叠加层 · 04 调整范围与提取确认",
+      "w": 640,
+      "h": 520,
+      "components": []
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb2c6f4ea8a",
+      "name": "V1 局部叠加层 · 28 调整后提取确认 · 新范围",
+      "w": 640,
+      "h": 520,
+      "components": []
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96dbed951a",
+      "name": "V1 局部叠加层 · 18 仅调整范围 · 保存边界",
+      "w": 640,
+      "h": 520,
+      "components": []
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb2bb825b0f",
+      "name": "V1 局部叠加层 · 26 边界调整后 · 正文标题同步预览",
+      "w": 640,
+      "h": 520,
+      "components": []
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb2c4658b29",
+      "name": "V1 局部叠加层 · 27 试听调整后的范围",
+      "w": 640,
+      "h": 520,
+      "components": []
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96052106e2",
+      "name": "V1 确认稿 · 03 片段内搜索 · 命中与句子定位",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "e1c1f28e-aff6-80fd-8008-b23960d89232",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 搜索"
+        }
+      ]
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa960347ad49",
+      "name": "V1 确认稿 · 02 全局搜索 · 自动选中首条",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "e1c1f28e-aff6-80fd-8008-b23955124f0f",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 搜索"
+        }
+      ]
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb20aac514c",
+      "name": "V1 确认稿 · 20 句子播放 · 当前句高亮",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "2e86d60e-e188-8090-8008-b23c612fa4c0",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例 · 句子播放"
+        }
+      ]
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa9733dcfedd",
+      "name": "V1 确认稿 · 00 完整目录与审阅入口",
+      "w": 1180,
+      "h": 1120,
+      "components": []
+    },
+    {
+      "id": "d2dffd0a-ee5f-80a5-8008-b501020ed378",
+      "name": "V1 局部叠加层 · 37 来源录音 · 当前片段未提取",
+      "w": 640,
+      "h": 520,
+      "components": [
+        {
+          "id": "ddb55c47-c01f-80be-8008-c6bc15d13c86",
+          "component": "ae41882f-baf5-8080-8008-c62a9a82b56c",
+          "name": "共用弹框外框 · 640×520"
+        }
+      ]
+    },
+    {
+      "id": "d2dffd0a-ee5f-80a5-8008-b50621cab18c",
+      "name": "V1 确认稿 · 41 收藏列表 · 待播放",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "d2dffd0a-ee5f-80a5-8008-b50622dbc874",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例"
+        }
+      ]
+    },
+    {
+      "id": "d2dffd0a-ee5f-80a5-8008-b50a2f763fe9",
+      "name": "V1 确认稿 · 42 全部列表 · 收藏片段继续播放",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "d2dffd0a-ee5f-80a5-8008-b50a3101b7a4",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例"
+        }
+      ]
+    },
+    {
+      "id": "1208628e-224a-802b-8008-b6466b244afb",
+      "name": "V1 确认稿 · 45 全部列表 · 暂停保留进度",
+      "w": 1180,
+      "h": 700,
+      "components": [
+        {
+          "id": "1208628e-224a-802b-8008-b6466b244afc",
+          "component": "3bf53dbf-0baf-80a9-8008-b1386227cad6",
+          "name": "共用主布局实例"
+        }
+      ]
+    },
+    {
+      "id": "4588985a-9981-8032-8008-b6085909bbf5",
+      "name": "V1 局部叠加层 · 44 重新提取 · 确认新范围",
+      "w": 640,
+      "h": 520,
+      "components": []
+    }
+  ]
+}

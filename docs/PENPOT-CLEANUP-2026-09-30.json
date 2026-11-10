@@ -1,0 +1,202 @@
+{
+  "boards": 46,
+  "hiddenRemaining": 0,
+  "componentIds": [
+    "3bf53dbf-0baf-80a9-8008-b1386227cad6"
+  ],
+  "removed32": 3459,
+  "results": [
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb215ff62a8",
+      "name": "V1 确认稿 · 21 长标题与长正文 · 正在跟随",
+      "removed": 122,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f65ec8d5-38c7-809b-8008-ac05d59cce1f",
+      "name": "V1 确认稿 · 34 列表长标题 · 悬停完整内容",
+      "removed": 123,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb26d40b64b",
+      "name": "V1 确认稿 · 23 长标题展开 · 完整第一句话",
+      "removed": 124,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb2624fbb93",
+      "name": "V1 确认稿 · 22 手动浏览正文 · 暂停跟随",
+      "removed": 133,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96d908250d",
+      "name": "V1 确认稿 · 17 提取失败 · 保留范围",
+      "removed": 99,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96d71d39f1",
+      "name": "V1 确认稿 · 16 提取进行中",
+      "removed": 99,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb3020a7c10",
+      "name": "V1 确认稿 · 29 提取新范围 · 模拟进度",
+      "removed": 99,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96d54a90e2",
+      "name": "V1 确认稿 · 15 未识别到对话",
+      "removed": 111,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96d385adc5",
+      "name": "V1 确认稿 · 14 没有录音",
+      "removed": 111,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96d1cdac69",
+      "name": "V1 确认稿 · 13 首次使用",
+      "removed": 110,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96d05f912e",
+      "name": "V1 确认稿 · 12 搜索无结果",
+      "removed": 112,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa9666f6e81e",
+      "name": "V1 确认稿 · 11 收藏为空",
+      "removed": 114,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa966428f49e",
+      "name": "V1 确认稿 · 10 原录音已删除 · 片段继续可用",
+      "removed": 101,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "ce649fc2-79fd-8005-8008-abb52a77a238",
+      "name": "V1 确认稿 · 32 删除完成 · 流程结束",
+      "removed": 100,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa965cac8b8e",
+      "name": "V1 确认稿 · 09 删除原录音 · 确认",
+      "removed": 99,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa964fcf1a34",
+      "name": "V1 确认稿 · 08 来源录音 · 全部片段提取完成",
+      "removed": 99,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa9732b368f9",
+      "name": "V1 确认稿 · 19 来源录音 · 尚不可删除",
+      "removed": 99,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa9641aa2cc0",
+      "name": "V1 确认稿 · 07 处理任务 · 进行中与失败重试",
+      "removed": 106,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "ce649fc2-79fd-8005-8008-abb55242b7a2",
+      "name": "V1 确认稿 · 33 任务各阶段 · 本地副本规则",
+      "removed": 106,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa960ed40213",
+      "name": "V1 确认稿 · 06 边界已调整 · 需要重新提取",
+      "removed": 101,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa960e5e1032",
+      "name": "V1 确认稿 · 05 已提取 · 可继续调整",
+      "removed": 100,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb30593727b",
+      "name": "V1 确认稿 · 30 提取成功 · 使用新文件",
+      "removed": 108,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "ce649fc2-79fd-8005-8008-abb4f8aa1ee1",
+      "name": "V1 确认稿 · 31 Finder 定位文件 · 模拟",
+      "removed": 108,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96062e9dc4",
+      "name": "V1 确认稿 · 04 调整范围与提取确认",
+      "removed": 99,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb2c6f4ea8a",
+      "name": "V1 确认稿 · 28 调整后提取确认 · 新范围",
+      "removed": 99,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96dbed951a",
+      "name": "V1 确认稿 · 18 仅调整范围 · 保存边界",
+      "removed": 99,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb2bb825b0f",
+      "name": "V1 确认稿 · 26 边界调整后 · 正文标题同步预览",
+      "removed": 99,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb2c4658b29",
+      "name": "V1 确认稿 · 27 试听调整后的范围",
+      "removed": 99,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa96052106e2",
+      "name": "V1 确认稿 · 03 片段内搜索 · 命中与句子定位",
+      "removed": 119,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "f7a17f55-4eaf-80ab-8008-aa960347ad49",
+      "name": "V1 确认稿 · 02 全局搜索 · 自动选中首条",
+      "removed": 122,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "9a25f8ed-7de4-8095-8008-abb20aac514c",
+      "name": "V1 确认稿 · 20 句子播放 · 当前句高亮",
+      "removed": 140,
+      "visibleUnchanged": true
+    },
+    {
+      "id": "4588985a-9981-8032-8008-b6085909bbf5",
+      "name": "V1 确认稿 · 44 重新提取 · 确认新范围",
+      "removed": 99,
+      "visibleUnchanged": true
+    }
+  ]
+}

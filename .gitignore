@@ -1,0 +1,23 @@
+node_modules/
+dist/
+src-tauri/target/
+.DS_Store
+*.log
+.local/
+.env.local
+test-results/
+playwright-report/
+*.tsbuildinfo
+src-tauri/gen/
+src-tauri/binaries/*
+!src-tauri/binaries/.gitkeep
+
+# Local packages, credentials and review evidence
+output/
+.env
+.env.*
+!.env.example
+*.sqlite3
+*.sqlite3-*
+docs/*.png
+docs/*BACKUP*.json
