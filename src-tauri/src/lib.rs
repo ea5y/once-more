@@ -7,6 +7,7 @@ use walkdir::WalkDir;
 
 type Result<T> = std::result::Result<T, String>;
 mod audio;
+mod delete_clip;
 mod media;
 mod model;
 mod simplified;
@@ -464,7 +465,7 @@ pub fn run() {
             app.manage(Store { connection: Mutex::new(db), scanning: AtomicBool::new(false), waveform_lock: Mutex::new(()), source_operation: Mutex::new(()) });
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![resegment::clear_processing_results,resegment::resegment_recording,resegment::retired_clip_ids,exit_guard::resolve_processing_exit,queue::processing_status,queue::set_processing_seconds,queue::enqueue_processing,queue::retry_processing,queue::run_processing,source_trash::trash_source,source_check::check_source_clips,pause::repair_pause_text,pause::preview_pause_segments,transcription::list_transcriptions,transcription::start_transcription,transcription::read_transcription,transcription::task_assets,model::get_model_status,model::download_model,load_snapshot,set_folder,get_v1_folders,get_v1_scan_time,get_scan_history,scan_recordings,save_memory,set_saved,record_listen,get_waveform,get_v1_waveform,export_clip,export_v1_clip,report_playback_error,check_v1_clip,reveal_v1_clip,load_v1_library,save_v1_library])
+        .invoke_handler(tauri::generate_handler![delete_clip::delete_clip,resegment::clear_processing_results,resegment::resegment_recording,resegment::retired_clip_ids,exit_guard::resolve_processing_exit,queue::processing_status,queue::set_processing_seconds,queue::enqueue_processing,queue::retry_processing,queue::run_processing,source_trash::trash_source,source_check::check_source_clips,pause::repair_pause_text,pause::preview_pause_segments,transcription::list_transcriptions,transcription::start_transcription,transcription::read_transcription,transcription::task_assets,model::get_model_status,model::get_model_info,model::open_model_directory,model::download_model,load_snapshot,set_folder,get_v1_folders,get_v1_scan_time,get_scan_history,scan_recordings,save_memory,set_saved,record_listen,get_waveform,get_v1_waveform,export_clip,export_v1_clip,report_playback_error,check_v1_clip,reveal_v1_clip,load_v1_library,save_v1_library])
         .build(tauri::generate_context!())
         .expect("Unable to start Once More")
         .run(|app, event| {

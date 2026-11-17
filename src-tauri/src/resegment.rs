@@ -11,7 +11,7 @@ pub fn initialize(db: &Connection) -> Result<()> {
 }
 
 // Missing paths are already cleaned; all existing targets must be ordinary files.
-fn validate_target(path: &Path, protected: &[String]) -> Result<()> {
+pub(crate) fn validate_target(path: &Path, protected: &[String]) -> Result<()> {
     let metadata = match fs::symlink_metadata(path) {
         Ok(m) => m,
         Err(e) if e.kind() == std::io::ErrorKind::NotFound => return Ok(()),

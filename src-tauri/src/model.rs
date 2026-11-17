@@ -71,6 +71,29 @@ fn verify(path: &Path, size: u64, expected: &str) -> Result<(), String> {
 pub fn get_model_status(app: tauri::AppHandle) -> Status {
     app.state::<Arc<ModelManager>>().status.lock().unwrap().clone()
 }
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ModelInfo { directory: String, file_name: String, size: u64 }
+#[tauri::command]
+pub fn get_model_info(app: tauri::AppHandle) -> ModelInfo {
+    let manager = app.state::<Arc<ModelManager>>();
+    ModelInfo { directory: manager.directory.to_string_lossy().into_owned(), file_name: NAME.into(), size: SIZE }
+}
+#[tauri::command]
+pub async fn open_model_directory(app: tauri::AppHandle) -> Result<(), String> {
+    let directory = app.state::<Arc<ModelManager>>().directory.clone();
+    #[cfg(target_os = "macos")]
+    {
+        tauri::async_runtime::spawn_blocking(move || {
+            fs::create_dir_all(&directory).map_err(|_| "无法访问模型文件夹，请重试".to_string())?;
+            let status = std::process::Command::new("/usr/bin/open").arg(&directory).status()
+                .map_err(|_| "无法打开模型文件夹，请重试".to_string())?;
+            if status.success() { Ok(()) } else { Err("无法打开模型文件夹，请重试".into()) }
+        }).await.map_err(|e| e.to_string())?
+    }
+    #[cfg(not(target_os = "macos"))]
+    { let _ = directory; Err("当前仅支持在 macOS 中打开文件夹".into()) }
+}
 #[tauri::command]
 pub fn download_model(app: tauri::AppHandle) -> Result<(), String> {
     let manager = app.state::<Arc<ModelManager>>().inner().clone();

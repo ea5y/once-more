@@ -56,7 +56,7 @@ export interface LibraryState extends NavigationState {
   filter: Filter;
   undoId: string | null;
 }
-export type LibraryAction = { type: 'open-clip'; id: string } | { type: 'queue-items'; items: readonly Conversation[]; retiredIds?: readonly string[] } | { type: 'source-restored'; sourceId: string } | { type: 'source-removed'; sourceId: string; pending: boolean; uncertain: boolean } | { type: 'segments-saved'; items: readonly Conversation[]; sourceId: string } | { type: 'media-position'; id: string; position: number; ended?: boolean } | { type: 'trash-source'; sourceId: string } | { type: 'extraction-result'; id: string; attempt: number; outcome: 'failed' | 'done'; clipPath?: string; error?: string } | { type: 'retry-extraction'; id: string } | { type: 'pause' } | { type: 'range'; id: string; start: number; end: number } | { type: 'extract'; id: string; start: number; end: number } | { type: 'sentence'; id: string; index: number } | { type: 'search'; query: string } | { type: 'play'; id: string } | { type: 'tick'; id: string; elapsed: number } | NavigationAction | { type: 'filter'; filter: Filter } | { type: 'favorite'; id: string } | { type: 'undo' } | { type: 'dismiss' };
+export type LibraryAction = { type: 'seek'; id: string; ratio: number } | { type: 'delete-clip'; id: string } | { type: 'open-clip'; id: string } | { type: 'queue-items'; items: readonly Conversation[]; retiredIds?: readonly string[] } | { type: 'source-restored'; sourceId: string } | { type: 'source-removed'; sourceId: string; pending: boolean; uncertain: boolean } | { type: 'segments-saved'; items: readonly Conversation[]; sourceId: string } | { type: 'media-position'; id: string; position: number; ended?: boolean } | { type: 'trash-source'; sourceId: string } | { type: 'extraction-result'; id: string; attempt: number; outcome: 'failed' | 'done'; clipPath?: string; error?: string } | { type: 'retry-extraction'; id: string } | { type: 'pause' } | { type: 'range'; id: string; start: number; end: number } | { type: 'extract'; id: string; start: number; end: number } | { type: 'sentence'; id: string; index: number } | { type: 'search'; query: string } | { type: 'play'; id: string } | { type: 'tick'; id: string; elapsed: number } | NavigationAction | { type: 'filter'; filter: Filter } | { type: 'favorite'; id: string } | { type: 'undo' } | { type: 'dismiss' };
 export function filteredItems(state: LibraryState) {
   if (state.query.trim()) return searchItems(state.items, state.query);
   return state.filter === 'saved' ? state.items.filter(item => item.saved) : state.items;
@@ -70,6 +70,18 @@ export function createLibrary(items: readonly Conversation[]): LibraryState {
   return { items, query: '', searchOrigin: null, date, selectedId: conversationsOn(items, date).at(-1)?.id ?? '', filter: 'all', undoId: null, playback: { id: null, position: 0, playing: false } };
 }
 export function libraryReducer(state: LibraryState, action: LibraryAction): LibraryState {
+  if (action.type === 'delete-clip') {
+    const before = conversationsOn(filteredItems(state), state.date);
+    const index = before.findIndex(item => item.id === action.id);
+    const next = before[index + 1] ?? before[index - 1];
+    let result = reconcile({ ...state, items: state.items.filter(item => item.id !== action.id),
+      selectedId: state.selectedId === action.id ? next?.id ?? '' : state.selectedId,
+      undoId: state.undoId === action.id ? null : state.undoId,
+      listenPass: state.listenPass?.id === action.id ? undefined : state.listenPass,
+      playback: state.playback.id === action.id ? { id: null, position: 0, playing: false } : state.playback });
+    if (!result.selectedId) result = { ...result, selectedId: conversationsOn(filteredItems(result), result.date)[0]?.id ?? '' };
+    return result;
+  }
   if (action.type === 'open-clip') {
     const item = state.items.find(item => item.id === action.id);
     return item ? { ...state, query: '', searchOrigin: null, filter: 'all', date: item.date, selectedId: item.id, playback: { ...state.playback, playing: false } } : state;
@@ -143,6 +155,11 @@ export function libraryReducer(state: LibraryState, action: LibraryAction): Libr
     const selectedId = first?.id ?? '';
     return { ...state, query, searchOrigin: state.searchOrigin ?? { filter: state.filter, date: state.date }, filter: 'all', date: first?.date ?? '', selectedId,
       playback: selectedId !== state.selectedId ? { ...state.playback, playing: false } : state.playback };
+  }
+  if (action.type === 'seek') {
+    const item = state.items.find(item => item.id === action.id);
+    if (!item || !Number.isFinite(action.ratio) || item.duration <= 0) return state;
+    return { ...state, listenPass: undefined, playback: { id: item.id, position: Math.min(Math.max(0, item.duration - 0.001), Math.max(0, action.ratio) * item.duration), playing: true, seekVersion: (state.playback.seekVersion ?? 0) + 1 } };
   }
   if (action.type === 'sentence') {
     const item = state.items.find(item => item.id === action.id);

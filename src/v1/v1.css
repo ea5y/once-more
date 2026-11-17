@@ -272,3 +272,52 @@
 .v1-task-progress::-webkit-progress-bar { background:#284251; border-radius:2px; }
 .v1-task-progress::-webkit-progress-value { background:#7EBBD0; border-radius:2px; }
 .v1-task-progress::-moz-progress-bar { background:#7EBBD0; }
+
+/* Model information shares the existing modal shell. */
+.v1-app .v1-model-dialog { overflow:hidden; }
+.v1-model-dialog .v1-source-dialog-body { min-height:0; height:100%; }
+.v1-model-header { flex:0 0 auto; position:relative; padding-right:36px; }
+.v1-model-header .v1-range-close { top:0; right:0; }
+.v1-model-scroll { flex:1 1 0; min-height:0; overflow-y:auto; overflow-x:hidden; overscroll-behavior:contain; margin-top:24px; padding-right:8px; }
+.v1-model-scroll:focus-visible { outline:1px solid #67b6d0; outline-offset:-1px; }
+.v1-model-identity { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-top:0; }
+.v1-model-identity h3 { margin:0; font-size:22px; font-weight:400; color:#d4e2eb; }
+.v1-model-identity > span { flex-shrink:0; font-size:14px; }
+.v1-model-identity .v1-model-ready { color:#7bc6ae; }
+.v1-app .v1-model-dialog .v1-model-purpose { margin:10px 0 0; }
+.v1-model-facts { margin:22px 0 0; font-size:15px; line-height:1.5; }
+.v1-model-facts > div { display:flex; gap:16px; }
+.v1-model-facts dt { flex:0 0 76px; white-space:nowrap; }
+.v1-model-facts dd { margin:0; }
+.v1-app .v1-model-dialog .v1-model-note { margin:24px 0 0; line-height:1.5; }
+.v1-model-dialog .v1-model-state { flex:none; margin-top:16px; min-height:36px; }
+.v1-model-more { margin-top:24px; }
+.v1-model-more summary { cursor:pointer; color:#d4e2eb; font-size:15px; width:fit-content; }
+.v1-model-more .v1-model-facts { margin-top:14px; font-size:13px; }
+.v1-model-location { display:flex; align-items:center; gap:12px; margin-top:16px; }
+.v1-model-location > span:first-child { flex-shrink:0; }
+.v1-model-path { min-width:0; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.v1-model-path:focus { white-space:normal; overflow-wrap:anywhere; }
+.v1-app .v1-model-dialog .v1-model-location button { flex-shrink:0; height:28px; background:transparent; color:#67b6d0; padding:0; }
+.v1-app .v1-model-dialog .v1-model-filename { margin:8px 0 0; font-size:12px; overflow-wrap:anywhere; }
+.v1-model-dialog footer { flex:0 0 auto; margin-top:0; padding-top:16px; }
+
+.v1-clip-menu { position:relative; }
+.v1-clip-menu summary { display:flex; cursor:pointer; list-style:none; }
+.v1-clip-menu summary::-webkit-details-marker { display:none; }
+.v1-app .v1-clip-menu > button { position:absolute; right:0; top:22px; width:132px; height:40px; z-index:10; background:#092131; border:1px solid #244659; border-radius:6px; color:#ef9999; box-shadow:0 8px 20px #0006; }
+.v1-delete-dialog p { overflow-wrap:anywhere; line-height:1.6; }
+.v1-delete-warning { padding:12px 18px; border-radius:8px; background:#302b27; color:#d9b67d; }
+.v1-delete-dialog footer button { min-width:112px; }
+
+/* Programmatic dialog focus is not a keyboard navigation indicator. */
+.v1-delete-dialog h2:focus { outline:none; }
+.v1-clip-menu summary:focus { outline:none; }
+.v1-clip-menu:not([data-keyboard="false"]) summary:focus-visible { outline:2px solid #72c9e8; outline-offset:3px; border-radius:3px; }
+
+/* Wide pointer targets on the existing range boundaries. */
+.v1-range-selection { pointer-events:none; }
+.v1-range-handle { position:absolute; top:0; bottom:0; width:20px; transform:translateX(-50%); z-index:3; cursor:ew-resize; touch-action:none; user-select:none; }
+.v1-range-handle::after { content:""; position:absolute; left:8px; top:0; bottom:0; width:3px; background:#5fcee2; }
+.v1-range-handle::before { content:""; position:absolute; left:4px; top:calc(50% - 12px); width:11px; height:24px; border-radius:4px; background:#5fcee2; }
+.v1-range-handle:focus-visible { outline:2px solid #cbdce6; outline-offset:-2px; }
