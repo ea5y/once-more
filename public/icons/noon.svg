@@ -1,1 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#E0D8B9" color="#E0D8B9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5" fill="currentColor" stroke="none"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="2171.333 365.333 19.333 19.333" style="-webkit-print-color-adjust::exact" fill="none" version="1.1">
+  <g style="fill:#000000" width="16" height="16" rx="0" ry="0">
+    <g style="display:none">
+      <g class="fills">
+        <rect rx="0" ry="0" x="2173" y="367" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" width="16" height="16" fill="none" style="fill:none">
+        </rect>
+      </g>
+    </g>
+    <g style="fill:#000000" rx="0" ry="0">
+      <g>
+        <g class="fills">
+          <ellipse cx="2181" cy="375" rx="4" ry="4" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" style="fill:#e0d8b9">
+          </ellipse>
+        </g>
+      </g>
+      <g>
+        <g class="fills">
+          <path d="M2181,368.3333740234375L2181,369.6666259765625M2181,380.3333740234375L2181,381.6666259765625M2174.333984375,375L2175.666015625,375M2186.333984375,375L2187.666015625,375M2176.333984375,370.3333740234375L2177.267578125,371.2667236328125M2184.732421875,378.7332763671875L2185.666015625,379.6666259765625M2176.333984375,379.6666259765625L2177.267578125,378.7332763671875M2184.732421875,371.2667236328125L2185.666015625,370.3333740234375" fill="none" stroke-linecap="round" style="fill:none">
+          </path>
+        </g>
+        <g fill="none" stroke-linecap="round" class="strokes">
+          <g class="stroke-shape">
+            <path d="M2181,368.3333740234375L2181,369.6666259765625M2181,380.3333740234375L2181,381.6666259765625M2174.333984375,375L2175.666015625,375M2186.333984375,375L2187.666015625,375M2176.333984375,370.3333740234375L2177.267578125,371.2667236328125M2184.732421875,378.7332763671875L2185.666015625,379.6666259765625M2176.333984375,379.6666259765625L2177.267578125,378.7332763671875M2184.732421875,371.2667236328125L2185.666015625,370.3333740234375" style="fill:none;stroke-width:1.8;stroke:#e0d8b9;stroke-opacity:1;stroke-linecap:round">
+            </path>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  </svg>

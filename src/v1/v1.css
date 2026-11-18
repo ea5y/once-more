@@ -321,3 +321,16 @@
 .v1-range-handle::after { content:""; position:absolute; left:8px; top:0; bottom:0; width:3px; background:#5fcee2; }
 .v1-range-handle::before { content:""; position:absolute; left:4px; top:calc(50% - 12px); width:11px; height:24px; border-radius:4px; background:#5fcee2; }
 .v1-range-handle:focus-visible { outline:2px solid #cbdce6; outline-offset:-2px; }
+
+/* Range/extraction dialogs initially focus their heading, not the close button. */
+.v1-range-dialog #range-heading:focus { outline:none; }
+
+/* Shared top date line from the main-screen design. */
+.v1-app .month { top:16px; }
+.v1-app .month > span { line-height:16px; }
+.v1-app .detail-date { padding-top:16px; line-height:16px; }
+
+/* The first period sits 11px above its row; keep the full 16px icon in the scrollport. */
+.v1-app .memory-list { padding-top:16px; }
+.v1-app .period { height:16px; }
+.v1-app .period img, .v1-app .detail-date img { flex-shrink:0; object-fit:contain; }

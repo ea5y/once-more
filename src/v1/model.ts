@@ -248,6 +248,12 @@ export function parseRangeTime(value: string) {
   if (!match) return NaN;
   return Number(match[1]) * 3600 + Number(match[2]) * 60 + Number(match[3]) + Number((match[4] ?? '').padEnd(3, '0')) / 1000;
 }
+/** Resolve the displayed millisecond endpoint to the exact media end. */
+export function parseRangeBoundary(value: string, sourceDuration: number) {
+  const seconds = parseRangeTime(value);
+  return Number.isFinite(seconds) && seconds === Math.round(sourceDuration * 1000) / 1000
+    ? sourceDuration : seconds;
+}
 export function rangeError(item: Conversation, start: number, end: number) {
   if (!item.sourceAvailable) return '原录音不存在，无法调整范围。';
   if (!Number.isFinite(start) || !Number.isFinite(end)) return '请输入有效时间，例如 00:16:00.000。';

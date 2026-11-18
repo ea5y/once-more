@@ -1,1 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#C6977B" color="#C6977B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16h18M6 16a6 6 0 0 1 12 0M5 20h14M12 3v5M9 5l3 3 3-3"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="2516 367 18 17" style="-webkit-print-color-adjust::exact" fill="none" version="1.1">
+  <g style="fill:#000000" width="16" height="16" rx="0" ry="0">
+    <g style="display:none">
+      <g class="fills">
+        <rect rx="0" ry="0" x="2517" y="367" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" width="16" height="16" fill="none" style="fill:none">
+        </rect>
+      </g>
+    </g>
+    <g style="fill:#000000" rx="0" ry="0">
+      <g>
+        <g class="fills">
+          <path d="M2520.333984375,376.3333740234375C2520.333984375,373.7559814453125,2522.423828125,371.6666259765625,2525,371.6666259765625C2527.576171875,371.6666259765625,2529.666015625,373.7559814453125,2529.666015625,376.3333740234375Z" style="fill:#c5967b">
+          </path>
+        </g>
+      </g>
+      <g>
+        <g class="fills">
+          <path d="M2519,378.3333740234375L2531,378.3333740234375M2521,381L2529,381" fill="none" stroke-linecap="round" style="fill:none">
+          </path>
+        </g>
+        <g fill="none" stroke-linecap="round" class="strokes">
+          <g class="stroke-shape">
+            <path d="M2519,378.3333740234375L2531,378.3333740234375M2521,381L2529,381" style="fill:none;stroke-width:1.8;stroke:#c5967b;stroke-opacity:1;stroke-linecap:round">
+            </path>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  </svg>

@@ -1,1 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#D8C899" color="#D8C899" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="1999.333 365.333 19.333 19.333" style="-webkit-print-color-adjust::exact" fill="none" version="1.1">
+  <g style="fill:#000000" width="16" height="16" rx="0" ry="0">
+    <g style="display:none">
+      <g class="fills">
+        <rect rx="0" ry="0" x="2001" y="367" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" width="16" height="16" fill="none" style="fill:none">
+        </rect>
+      </g>
+    </g>
+    <g style="fill:#000000" rx="0" ry="0">
+      <g>
+        <g class="fills">
+          <ellipse cx="2008.9999999999982" cy="374.9999999999999" rx="3.3333333333339397" ry="3.3333333333333712" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" style="fill:#d2bd8c">
+          </ellipse>
+        </g>
+      </g>
+      <g>
+        <g class="fills">
+          <path d="M2009,368.3333740234375L2009,369.6666259765625M2009,380.3333740234375L2009,381.6666259765625M2002.333984375,375L2003.666015625,375M2014.333984375,375L2015.666015625,375M2004.333984375,370.3333740234375L2005.267578125,371.2667236328125M2012.732421875,378.7332763671875L2013.666015625,379.6666259765625M2004.333984375,379.6666259765625L2005.267578125,378.7332763671875M2012.732421875,371.2667236328125L2013.666015625,370.3333740234375" fill="none" stroke-linecap="round" style="fill:none">
+          </path>
+        </g>
+        <g fill="none" stroke-linecap="round" class="strokes">
+          <g class="stroke-shape">
+            <path d="M2009,368.3333740234375L2009,369.6666259765625M2009,380.3333740234375L2009,381.6666259765625M2002.333984375,375L2003.666015625,375M2014.333984375,375L2015.666015625,375M2004.333984375,370.3333740234375L2005.267578125,371.2667236328125M2012.732421875,378.7332763671875L2013.666015625,379.6666259765625M2004.333984375,379.6666259765625L2005.267578125,378.7332763671875M2012.732421875,371.2667236328125L2013.666015625,370.3333740234375" style="fill:none;stroke-width:1.8;stroke:#d2bd8c;stroke-opacity:1;stroke-linecap:round">
+            </path>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  </svg>

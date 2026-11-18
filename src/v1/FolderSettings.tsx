@@ -1,11 +1,11 @@
-import { forwardRef, useImperativeHandle, useCallback, useEffect, useState } from 'react';
+import { forwardRef, useImperativeHandle, useCallback, useEffect, useState, type ReactNode } from 'react';
 import { Folder, Mic } from 'lucide-react';
 import { invoke } from '@tauri-apps/api/core';
 import { api, desktop } from '../lib/api';
 interface FolderStatus { path: string | null; error: string | null }
 interface Config { source: FolderStatus; output: FolderStatus }
 export interface FolderActions { chooseSource: () => void }
-export default forwardRef<FolderActions, { scanning?: boolean; onSource: (path: string | null) => void; onOutput: (path: string | null) => void }>(function FolderSettings({ onOutput, onSource }, ref) {
+export default forwardRef<FolderActions, { children?: ReactNode; scanning?: boolean; onSource: (path: string | null) => void; onOutput: (path: string | null) => void }>(function FolderSettings({ onOutput, onSource, children }, ref) {
   const [config, setConfig] = useState<Config>();
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
@@ -26,7 +26,7 @@ export default forwardRef<FolderActions, { scanning?: boolean; onSource: (path: 
     finally { setBusy(false); }
   }
   useImperativeHandle(ref, () => ({ chooseSource: () => { void choose('source'); } }));
-  return <section className="config" aria-label="文件夹配置">
+  return <section className="config" aria-label="应用配置">
     <div className="section-heading">CONFIG</div>
     {(['source', 'output'] as const).map(kind => {
       const value = config?.[kind];
@@ -38,6 +38,7 @@ export default forwardRef<FolderActions, { scanning?: boolean; onSource: (path: 
         {value?.error && <p className="v1-folder-error" role="alert">{label}：{value.error}</p>}
       </div>;
     })}
+    {children}
     <p className="v1-settings-hint">修改将在下次任务中生效。</p>
     {error && <p className="v1-folder-error" role="alert">{error}<button onClick={() => { setError(''); void refresh().catch(reason => setError(String(reason))); }}>重新读取</button></p>}
   </section>;

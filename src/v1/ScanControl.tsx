@@ -1,16 +1,16 @@
 import { elapsedText } from './ProcessingHistory';
 import TaskProgress from './TaskProgress';
 import type { Conversation } from './model';
-import { forwardRef, useImperativeHandle, useEffect, useRef, useState } from 'react';
+import { forwardRef, useImperativeHandle, useEffect, useRef, useState, type RefObject } from 'react';
 import { invoke } from '@tauri-apps/api/core';
 import { desktop } from '../lib/api';
-import ModelPreparation, { type ModelActions, type ModelStatus } from './ModelPreparation';
+import { type ModelActions, type ModelStatus } from './ModelPreparation';
 import type { ConfirmSegments } from './segmentation';
 import ProcessingHistory, { type ProcessingSnapshot } from './ProcessingHistory';
 import { cycleView } from './scanCycle';
 
 export interface ScanActions { scan: () => void }
-export default forwardRef<ScanActions, { items: readonly Conversation[]; onOpenClip: (id: string) => void; onResult: () => void; onQueueSaved: () => Promise<void>; onConfirm: ConfirmSegments; onScanning: (value: boolean) => void }>(function ScanControl({ items, onOpenClip, onResult, onScanning, onQueueSaved }, ref) {
+export default forwardRef<ScanActions, { model: RefObject<ModelActions | null>; items: readonly Conversation[]; onOpenClip: (id: string) => void; onResult: () => void; onQueueSaved: () => Promise<void>; onConfirm: ConfirmSegments; onScanning: (value: boolean) => void }>(function ScanControl({ model, items, onOpenClip, onResult, onScanning, onQueueSaved }, ref) {
   const [history, setHistory] = useState(false);
   const [queue, setQueue] = useState<ProcessingSnapshot>({ jobs: [], active: false, seconds: 6 });
   const [queueError, setQueueError] = useState(false);
@@ -19,7 +19,6 @@ export default forwardRef<ScanActions, { items: readonly Conversation[]; onOpenC
   const [sending, setSending] = useState(false);
   const [scanned, setScanned] = useState(false);
   const [message, setMessage] = useState('');
-  const model = useRef<ModelActions>(null);
   const lock = useRef(false);
   const completed = useRef('');
   const onSaved = useRef(onQueueSaved); onSaved.current = onQueueSaved;
@@ -75,7 +74,6 @@ export default forwardRef<ScanActions, { items: readonly Conversation[]; onOpenC
     {view.disabled && <><TaskProgress job={scanning ? undefined : queue.jobs.find(j => j.status === 'running')} />{elapsedText(queue.jobs.find(j => j.status === 'running')) && <p>{elapsedText(queue.jobs.find(j => j.status === 'running'))}</p>}<p>仍可浏览和回听已有记忆</p></>}
     {message && <p className="v1-scan-message" role="alert">{message}</p>}
     {queueError && <p role="alert">任务状态读取失败，正在重试。</p>}
-    <ModelPreparation ref={model} />
     {history && <ProcessingHistory items={items} onOpenClip={onOpenClip} snapshot={queue} onRefresh={async () => { await refreshQueue(); await onSaved.current(); }} onClose={() => setHistory(false)} />}
   </section>;
 });

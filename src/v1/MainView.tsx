@@ -5,6 +5,7 @@ import { formatDuration, timePeriod } from '../lib/memory';
 import { extractionLabel, conversationTitle, mockSentenceAt, conversationsOn, datesFor, createLibrary, filteredItems, libraryReducer, type LibraryAction, type Conversation, type Filter, type Playback } from './model';
 import './v1.css';
 import DateRail from './DateRail';
+import ModelPreparation, { type ModelActions } from './ModelPreparation';
 import DeleteClipDialog from './DeleteClipDialog';
 import Transcript from './Transcript';
 import RevealClip from './RevealClip';
@@ -26,11 +27,12 @@ const unavailable = '后续批次开放';
 
 function Sidebar({ items, onOpenClip, onOutput, saveStatus, onConfirm, onQueueSaved, onSource, onResult, folderRef, scanRef, preview }: { items: readonly Conversation[]; onOpenClip: (id: string) => void; onSource: (path: string | null) => void; onResult: () => void; folderRef: RefObject<FolderActions | null>; scanRef: RefObject<ScanActions | null>; preview: boolean; onQueueSaved: () => Promise<void>; onConfirm: ConfirmSegments; onOutput: (path: string | null) => void; saveStatus: string }) {
   const [scanning, setScanning] = useState(false);
+  const model = useRef<ModelActions>(null);
   return <aside className="sidebar">
     <div className="window-drag" data-tauri-drag-region>{!desktop && <div className="traffic-lights" aria-hidden="true"><i /><i /><i /></div>}</div>
     <div className="brand"><div className="brand-name"><span className="brand-orbit" />NCE MORE</div><p>Let sounds live again.</p></div>
-    <ScanControl items={items} onOpenClip={onOpenClip} ref={scanRef} onResult={onResult} onQueueSaved={onQueueSaved} onConfirm={onConfirm} onScanning={setScanning} />
-    <div className="sidebar-bottom"><p className="v1-preview-note">{preview && <>V1 示例预览<br /></>}{saveStatus}</p><FolderSettings ref={folderRef} onSource={onSource} onOutput={onOutput} scanning={scanning} /></div>
+    <ScanControl model={model} items={items} onOpenClip={onOpenClip} ref={scanRef} onResult={onResult} onQueueSaved={onQueueSaved} onConfirm={onConfirm} onScanning={setScanning} />
+    <div className="sidebar-bottom"><p className="v1-preview-note">{preview && <>V1 示例预览<br /></>}{saveStatus}</p><FolderSettings ref={folderRef} onSource={onSource} onOutput={onOutput} scanning={scanning}><ModelPreparation ref={model} /></FolderSettings></div>
   </aside>;
 }
 

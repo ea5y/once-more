@@ -1,1 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#C8AD83" color="#C8AD83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 7a5 5 0 0 1 0 10Z" fill="currentColor" stroke="none"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1 1M18 18l1 1M5 19l1-1M18 6l1-1"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="2343.333 365.333 19.333 19.333" style="-webkit-print-color-adjust::exact" fill="none" version="1.1">
+  <g style="fill:#000000" width="16" height="16" rx="0" ry="0">
+    <g style="display:none">
+      <g class="fills">
+        <rect rx="0" ry="0" x="2345" y="367" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" width="16" height="16" fill="none" style="fill:none">
+        </rect>
+      </g>
+    </g>
+    <g style="fill:#000000" rx="0" ry="0">
+      <g style="opacity:0.3">
+        <g class="fills">
+          <ellipse cx="2353" cy="375" rx="4" ry="4" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" style="fill:#c6ab84">
+          </ellipse>
+        </g>
+      </g>
+      <g>
+        <g class="fills">
+          <path d="M2353,371C2355.208984375,371,2357,372.7908935546875,2357,375C2357,377.2091064453125,2355.208984375,379,2353,379Z" style="fill:#c6ab84">
+          </path>
+        </g>
+      </g>
+      <g>
+        <g class="fills">
+          <path d="M2353,368.3333740234375L2353,369.6666259765625M2353,380.3333740234375L2353,381.6666259765625M2346.333984375,375L2347.666015625,375M2358.333984375,375L2359.666015625,375M2348.333984375,370.3333740234375L2349.267578125,371.2667236328125M2356.732421875,378.7332763671875L2357.666015625,379.6666259765625M2348.333984375,379.6666259765625L2349.267578125,378.7332763671875M2356.732421875,371.2667236328125L2357.666015625,370.3333740234375" fill="none" stroke-linecap="round" style="fill:none">
+          </path>
+        </g>
+        <g fill="none" stroke-linecap="round" class="strokes">
+          <g class="stroke-shape">
+            <path d="M2353,368.3333740234375L2353,369.6666259765625M2353,380.3333740234375L2353,381.6666259765625M2346.333984375,375L2347.666015625,375M2358.333984375,375L2359.666015625,375M2348.333984375,370.3333740234375L2349.267578125,371.2667236328125M2356.732421875,378.7332763671875L2357.666015625,379.6666259765625M2348.333984375,379.6666259765625L2349.267578125,378.7332763671875M2356.732421875,371.2667236328125L2357.666015625,370.3333740234375" style="fill:none;stroke-width:1.8;stroke:#c6ab84;stroke-opacity:1;stroke-linecap:round">
+            </path>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  </svg>

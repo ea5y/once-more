@@ -1,6 +1,6 @@
 import { forwardRef, useImperativeHandle, useEffect, useRef, useState } from 'react';
 import { invoke } from '@tauri-apps/api/core';
-import { X } from 'lucide-react';
+import { Cpu, X } from 'lucide-react';
 import { modelError } from './errorMessages';
 import { desktop } from '../lib/api';
 import { openSidebarDialog } from './openSidebarDialog';
@@ -117,5 +117,5 @@ export default forwardRef<ModelActions>(function ModelPreparation(_, ref) {
     missing: '未下载', downloading: `下载中 · ${progress}%`, checking: '校验中',
     failed: modelError(status.error).action === '重新下载' ? '需重新下载' : '下载失败', ready: '已就绪',
   }[status.phase];
-  return <><button className="v1-model-entry" disabled={!desktop} onClick={() => setOpen(true)}>转写模型 · {label}</button>{open && <ModelDialog onClose={() => setOpen(false)} />}</>;
+  return <><button className="folder-setting v1-model-setting" disabled={!desktop} onClick={() => setOpen(true)}><Cpu size={23} /><span>转写模型<small>{label}</small></span></button>{open && <ModelDialog onClose={() => setOpen(false)} />}</>;
 });

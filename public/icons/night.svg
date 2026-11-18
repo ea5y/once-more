@@ -1,1 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#88ADC8" color="#88ADC8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a9 9 0 1 0 5 13A9 9 0 0 1 16 3Z"/><path d="M18 4v4M16 6h4" opacity=".7"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="2689 367 16 16" style="-webkit-print-color-adjust::exact" fill="none" version="1.1">
+  <g style="fill:#000000" width="16" height="16" rx="0" ry="0">
+    <g style="display:none">
+      <g class="fills">
+        <rect rx="0" ry="0" x="2689" y="367" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" width="16" height="16" fill="none" style="fill:none">
+        </rect>
+      </g>
+    </g>
+    <g>
+      <g class="fills">
+        <path d="M2699.1328125,368.7332763671875C2696.0546875,368.2882080078125,2693.103515625,370.1207275390625,2692.134765625,373.07666015625C2691.16796875,376.03271484375,2692.46484375,379.25634765625,2695.2109375,380.7174072265625C2697.95703125,382.178466796875,2701.35546875,381.453857421875,2703.267578125,379C2701.052734375,378.6025390625,2699.201171875,377.0950927734375,2698.361328125,375.0096435546875C2697.521484375,372.9239501953125,2697.814453125,370.55322265625,2699.1328125,368.7332763671875Z" style="fill:#51a8ce">
+        </path>
+      </g>
+    </g>
+  </g>
+  </svg>

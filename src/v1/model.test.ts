@@ -157,7 +157,7 @@ describe('V1 句子模拟定位', () => {
   });
 });
 
-import { formatRangeTime, parseRangeTime, rangeError } from './model';
+import { formatRangeTime, parseRangeTime, parseRangeBoundary, rangeError } from './model';
 describe('V1 范围保存', () => {
   it('保留毫秒精度，拒绝错误时间格式，支持超过24小时', () => {
     expect(parseRangeTime('00:16:00.125')).toBe(960.125);
@@ -405,5 +405,22 @@ describe('模拟移走原录音', () => {
     expect(libraryReducer(next, { type: 'trash-source', sourceId })).toBe(next);
     expect(libraryReducer(next, { type: 'range', id: items[0].id, start: 1, end: 20 })).toBe(next);
     expect(libraryReducer(next, { type: 'tick', id: items[0].id, elapsed: 1 }).playback.position).toBe(1);
+  });
+});
+
+
+describe('录音末尾时间精度', () => {
+  it('显示舍入后的末尾还原为真实时长，试听和保存不越界', () => {
+    for (const sourceDuration of [8203.7546875, 8203.7543125, 8203.755]) {
+      const end = parseRangeBoundary(formatRangeTime(sourceDuration), sourceDuration);
+      expect(end).toBe(sourceDuration);
+      expect(rangeError({ ...conversations[0], sourceAvailable: true, sourceDuration }, 8052.19, end)).toBe('');
+    }
+  });
+  it('仍然拒绝真正越界，保留普通时间和格式错误', () => {
+    const item = { ...conversations[0], sourceAvailable: true, sourceDuration: 8203.7546875 };
+    expect(rangeError(item, 8052.19, parseRangeBoundary('02:16:43.756', item.sourceDuration))).toContain('超出');
+    expect(parseRangeBoundary('00:00:12.345', item.sourceDuration)).toBe(12.345);
+    expect(Number.isNaN(parseRangeBoundary('abc', item.sourceDuration))).toBe(true);
   });
 });
