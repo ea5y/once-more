@@ -1,6 +1,6 @@
 [package]
 name = "once-more"
-version = "0.1.0"
+version = "0.1.1"
 description = "Let sounds live again."
 edition = "2021"
 
