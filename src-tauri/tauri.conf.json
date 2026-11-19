@@ -44,5 +44,13 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ]
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEYxN0FENTU4MDcyOTZFNDkKUldSSmJpa0hXTlY2OFJrNFlYeTlGZW9RUHlDTVZGVlZCTWJvOGsrZEhtZjlMalNORzlTRWdtcGkK",
+      "endpoints": [
+        "https://github.com/ea5y/once-more/releases/latest/download/latest.json"
+      ]
+    }
   }
 }

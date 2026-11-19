@@ -4,6 +4,8 @@ use tauri::{Emitter, Manager};
 #[derive(Default)]
 pub struct ExitGuard { allowed: AtomicBool, pending: AtomicBool }
 pub fn intercept(app: &tauri::AppHandle) -> bool {
+    // Do not interrupt replacement of the running application bundle.
+    if app.state::<crate::updater::Updates>().is_installing() { return true; }
     let guard = app.state::<ExitGuard>();
     if guard.allowed.load(Ordering::SeqCst) { return false; }
     let store = app.state::<Store>();

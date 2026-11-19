@@ -11,6 +11,7 @@ const SHA: &str = "394221709cd5ad1f40c46e6031ca61bce88931e6e088c188294c6d5a55ffa
 pub struct Status { phase: String, downloaded: u64, total: u64, error: Option<String> }
 pub struct ModelManager { directory: PathBuf, status: Mutex<Status> }
 impl ModelManager {
+    pub fn is_busy(&self) -> bool { self.status.lock().map(|s| matches!(s.phase.as_str(), "downloading" | "checking")).unwrap_or(true) }
     fn update(&self, phase: &str, downloaded: u64, error: Option<String>) {
         *self.status.lock().unwrap() = Status { phase: phase.into(), downloaded, total: SIZE, error };
     }

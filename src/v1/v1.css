@@ -334,3 +334,17 @@
 .v1-app .memory-list { padding-top:16px; }
 .v1-app .period { height:16px; }
 .v1-app .period img, .v1-app .detail-date img { flex-shrink:0; object-fit:contain; }
+
+/* Update entry: independent of the drag region and CONFIG, matching draft 50A. */
+.v1-app > .sidebar { position: relative; }
+.v1-app .v1-app-update { position: absolute; top: 8px; right: 20px; min-width: 28px; height: 28px; padding: 2px; border: 0; border-radius: 0; background: transparent; color: #82b6c9; display: flex; align-items: center; justify-content: center; font-size: 12px; z-index: 2; }
+.v1-app .v1-app-update:hover { color: #b5dbe7; background: transparent; }
+.v1-app .v1-app-update:focus:not(:focus-visible) { outline: none; }
+.v1-app .v1-app-update:focus-visible { outline: 1px solid #82b6c9; outline-offset: 3px; }
+.v1-app .v1-app-update[aria-disabled="true"] { cursor: default; }
+.v1-update-glyph { position: relative; display: flex; }
+.v1-update-glyph svg { stroke-width: 1.5; }
+.v1-update-glyph i { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #e4c18e; right: -2px; top: -2px; }
+.v1-update-restarting { white-space: nowrap; }
+
+.v1-app .v1-app-version { position: absolute; top: 12px; right: 20px; color: #7796a6; font-size: 12px; line-height: 20px; text-align: right; white-space: nowrap; pointer-events: none; }

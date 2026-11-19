@@ -5,6 +5,7 @@ import { formatDuration, timePeriod } from '../lib/memory';
 import { extractionLabel, conversationTitle, mockSentenceAt, conversationsOn, datesFor, createLibrary, filteredItems, libraryReducer, type LibraryAction, type Conversation, type Filter, type Playback } from './model';
 import './v1.css';
 import DateRail from './DateRail';
+import AppUpdate from './AppUpdate';
 import ModelPreparation, { type ModelActions } from './ModelPreparation';
 import DeleteClipDialog from './DeleteClipDialog';
 import Transcript from './Transcript';
@@ -25,11 +26,11 @@ const weekday = (date: string) => new Date(`${date || '2026-09-10'}T12:00:00`).t
 let pendingSave: Promise<unknown> = Promise.resolve();
 const unavailable = '后续批次开放';
 
-function Sidebar({ items, onOpenClip, onOutput, saveStatus, onConfirm, onQueueSaved, onSource, onResult, folderRef, scanRef, preview }: { items: readonly Conversation[]; onOpenClip: (id: string) => void; onSource: (path: string | null) => void; onResult: () => void; folderRef: RefObject<FolderActions | null>; scanRef: RefObject<ScanActions | null>; preview: boolean; onQueueSaved: () => Promise<void>; onConfirm: ConfirmSegments; onOutput: (path: string | null) => void; saveStatus: string }) {
+function Sidebar({ updater, items, onOpenClip, onOutput, saveStatus, onConfirm, onQueueSaved, onSource, onResult, folderRef, scanRef, preview }: { items: readonly Conversation[]; onOpenClip: (id: string) => void; onSource: (path: string | null) => void; onResult: () => void; folderRef: RefObject<FolderActions | null>; scanRef: RefObject<ScanActions | null>; preview: boolean; updater: ReactNode; onQueueSaved: () => Promise<void>; onConfirm: ConfirmSegments; onOutput: (path: string | null) => void; saveStatus: string }) {
   const [scanning, setScanning] = useState(false);
   const model = useRef<ModelActions>(null);
   return <aside className="sidebar">
-    <div className="window-drag" data-tauri-drag-region>{!desktop && <div className="traffic-lights" aria-hidden="true"><i /><i /><i /></div>}</div>
+    <div className="window-drag" data-tauri-drag-region>{!desktop && <div className="traffic-lights" aria-hidden="true"><i /><i /><i /></div>}</div>{updater}
     <div className="brand"><div className="brand-name"><span className="brand-orbit" />NCE MORE</div><p>Let sounds live again.</p></div>
     <ScanControl model={model} items={items} onOpenClip={onOpenClip} ref={scanRef} onResult={onResult} onQueueSaved={onQueueSaved} onConfirm={onConfirm} onScanning={setScanning} />
     <div className="sidebar-bottom"><p className="v1-preview-note">{preview && <>V1 示例预览<br /></>}{saveStatus}</p><FolderSettings ref={folderRef} onSource={onSource} onOutput={onOutput} scanning={scanning}><ModelPreparation ref={model} /></FolderSettings></div>
@@ -142,6 +143,12 @@ export default function MainView({ items = [], persist = false, preview = false 
   const [saveStatus, setSaveStatus] = useState(persist ? '正在保存…' : '浏览器预览 · 不保存');
   const [saveError, setSaveError] = useState('');
   const [saveAttempt, setSaveAttempt] = useState(0);
+  const [installingUpdate, setInstallingUpdate] = useState(false);
+  const beforeUpdate = async () => {
+    dispatch({ type: 'pause' });
+    await pendingSave.catch(() => undefined);
+    await invoke('save_v1_library', { library: saveLibrary(stateRef.current.items) });
+  };
   useEffect(() => {
     if (!persist) return;
     let active = true;
@@ -225,7 +232,7 @@ export default function MainView({ items = [], persist = false, preview = false 
   const filtered = filteredItems(state);
   const selected = state.items.find(item => item.id === state.selectedId);
   const empty = <div className="empty-state"><h1>{source && scanCount === 0 ? '还没有录音' : '让声音，再被听见'}</h1><p>{source && scanCount === 0 ? '当前来源文件夹中没有找到可用录音。' : '选择录音来源，扫描后自动整理全部对话。'}</p><button className="secondary" disabled={!desktop} onClick={() => source ? scanRef.current?.scan() : folderRef.current?.chooseSource()}>{source ? source && scanCount === 0 ? '重新扫描' : '扫描新录音' : '选择录音文件夹'}</button>{source && scanCount === 0 && <button disabled={!desktop} onClick={() => folderRef.current?.chooseSource()}>更改录音来源</button>}</div>;
-  return <main className="app v1-app"><Sidebar items={state.items} onOpenClip={id => dispatch({ type: 'open-clip', id })} preview={preview} onSource={sourceChanged} onResult={() => setScanRevision(value => value + 1)} folderRef={folderRef} scanRef={scanRef} onQueueSaved={queueSaved} onConfirm={confirmSegments} onOutput={setOutput} saveStatus={saveStatus} /><DayList onDelete={id => { dispatch({ type: 'pause' }); setDeleteId(id); }} empty={empty} query={state.query} onSearch={query => dispatch({ type: 'search', query })} playback={state.playback} onPlay={onPlay} items={filtered} dates={datesFor(filtered)} date={state.date} selectedId={state.selectedId} filter={state.filter} total={state.items.length} savedCount={state.items.filter(item => item.saved).length} onFilter={filter => dispatch({ type: 'filter', filter })} onFavorite={id => dispatch({ type: 'favorite', id })} onDate={date => dispatch({ type: 'date', date })} onSelect={id => dispatch({ type: 'select', id })} />{selected ? <Detail onSeek={(id, ratio) => dispatch({ type: 'seek', id, ratio })} onSource={() => setSourceId(selected.sourceId)} onRetry={() => dispatch({ type: "retry-extraction", id: selected.id })} onExtract={() => { dispatch({ type: "pause" }); setRangeRequest({ id: selected.id, mode: "extract" }); }} onRange={() => { dispatch({ type: 'pause' }); setRangeRequest({ id: selected.id, mode: "range" }); }} onSentence={index => dispatch({ type: 'sentence', id: selected.id, index })} query={state.query} playback={state.playback} onPlay={onPlay} item={selected} onFavorite={() => dispatch({ type: 'favorite', id: selected.id })} /> : <aside className="detail"><div className="detail-empty"><h2>{state.items.length ? '选择一条记忆' : '暂时没有记忆'}</h2>{!state.items.length && <p>对话处理完成后，在这里查看</p>}</div></aside>}
+  return <main className="app v1-app" inert={installingUpdate}><Sidebar updater={<AppUpdate editing={rangeRequest !== null} saving={persist && saveStatus === '正在保存…'} busy={state.items.some(item => item.extraction === 'extracting')} beforeInstall={beforeUpdate} onInstalling={setInstallingUpdate} />} items={state.items} onOpenClip={id => dispatch({ type: 'open-clip', id })} preview={preview} onSource={sourceChanged} onResult={() => setScanRevision(value => value + 1)} folderRef={folderRef} scanRef={scanRef} onQueueSaved={queueSaved} onConfirm={confirmSegments} onOutput={setOutput} saveStatus={saveStatus} /><DayList onDelete={id => { dispatch({ type: 'pause' }); setDeleteId(id); }} empty={empty} query={state.query} onSearch={query => dispatch({ type: 'search', query })} playback={state.playback} onPlay={onPlay} items={filtered} dates={datesFor(filtered)} date={state.date} selectedId={state.selectedId} filter={state.filter} total={state.items.length} savedCount={state.items.filter(item => item.saved).length} onFilter={filter => dispatch({ type: 'filter', filter })} onFavorite={id => dispatch({ type: 'favorite', id })} onDate={date => dispatch({ type: 'date', date })} onSelect={id => dispatch({ type: 'select', id })} />{selected ? <Detail onSeek={(id, ratio) => dispatch({ type: 'seek', id, ratio })} onSource={() => setSourceId(selected.sourceId)} onRetry={() => dispatch({ type: "retry-extraction", id: selected.id })} onExtract={() => { dispatch({ type: "pause" }); setRangeRequest({ id: selected.id, mode: "extract" }); }} onRange={() => { dispatch({ type: 'pause' }); setRangeRequest({ id: selected.id, mode: "range" }); }} onSentence={index => dispatch({ type: 'sentence', id: selected.id, index })} query={state.query} playback={state.playback} onPlay={onPlay} item={selected} onFavorite={() => dispatch({ type: 'favorite', id: selected.id })} /> : <aside className="detail"><div className="detail-empty"><h2>{state.items.length ? '选择一条记忆' : '暂时没有记忆'}</h2>{!state.items.length && <p>对话处理完成后，在这里查看</p>}</div></aside>}
     {activeAudio && <AudioPlayback preferExtracted key={`${activeAudio.id}:${activeAudio.start}:${activeAudio.duration}:${playbackSource(activeAudio, true).clipPath ?? "source"}`} item={activeAudio} playback={state.playback} dispatch={dispatch} onError={setAudioError} />}
     {segmentMessage && <div className="toast" role="status"><span>{segmentMessage}</span><button aria-label="关闭保存提示" onClick={() => setSegmentMessage('')}><X size={15} /></button></div>}
     {saveError && <div className="toast" role="alert"><span>记录未保存：{saveError}</span><button onClick={() => setSaveAttempt(value => value + 1)}>重试保存</button></div>}
