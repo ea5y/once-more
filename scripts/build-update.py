@@ -24,6 +24,8 @@ env = os.environ.copy()
 env['TAURI_SIGNING_PRIVATE_KEY'] = str(key)
 env.setdefault('TAURI_SIGNING_PRIVATE_KEY_PASSWORD', '')
 subprocess.run(['npm', 'run', 'tauri', '--', 'build', '--bundles', 'app', '--config', json.dumps({'bundle': {'createUpdaterArtifacts': True}})], cwd=root, env=env, check=True)
+# Reject incomplete bundle signatures before preparing public release artifacts.
+subprocess.run(['codesign', '--verify', '--deep', '--strict', str(root / 'src-tauri/target/release/bundle/macos/Once More.app')], check=True)
 arch = {'arm64': 'aarch64', 'x86_64': 'x86_64'}[platform.machine()]
 source = root / 'src-tauri/target/release/bundle/macos/Once More.app.tar.gz'
 output = root / 'output/updates' / version / arch
